@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geodesy & Coordinate Systems - MCQ Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .question:hover {
+            transform: translateX(5px);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .options {
+            margin-left: 40px;
+        }
+
+        .option {
+            padding: 8px 0;
+            color: #555;
+        }
+
+        .option-letter {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .answer-box {
+            margin-top: 15px;
+            padding: 12px 15px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            display: none;
+        }
+
+        .answer-box.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .answer-label {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .answer-text {
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .btn-toggle {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-toggle:hover {
+            background: #5a67d8;
+        }
+
+        .btn-show-all {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 30px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-show-all:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .fill-blank {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+
+        .true-false {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .mcq {
+            background: #f3e5f5;
+            border-left-color: #9c27b0;
+        }
+
+        .blank-input {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 2px dashed #ff9800;
+            text-align: center;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 Geodesy & Coordinate Systems</h1>
+            <p>Comprehensive MCQ, Fill-in-the-Blank & True/False Practice for University Students</p>
+        </div>
+
+        <div class="content">
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Topics</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Questions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Question Types</div>
+                </div>
+            </div>
+
+            <button class="btn-show-all" onclick="showAllAnswers()">🔓 Show All Answers</button>
+            <button class="btn-show-all" onclick="hideAllAnswers()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);">🔒 Hide All Answers</button>
+
+            <!-- SECTION 1: Introduction to Basic Geodesy -->
+            <div class="section">
+                <div class="section-title">📐 1. Introduction to Basic Geodesy</div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">1</span>Who is credited with one of the earliest scientific estimates of Earth's circumference?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Ptolemy</div>
+                        <div class="option"><span class="option-letter">B)</span> Eratosthenes</div>
+                        <div class="option"><span class="option-letter">C)</span> Isaac Newton</div>
+                        <div class="option"><span class="option-letter">D)</span> Galileo Galilei</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Eratosthenes estimated Earth's circumference around 240 BCE by measuring shadows at two different locations (Alexandria and Syene).</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">2</span>The geoid represents the exact mathematical shape of the Earth.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B (False)</span>
+                        <div class="answer-text">The geoid is an equipotential surface of Earth's gravity field, approximating mean sea level. It is irregular and lumpy, not a perfect mathematical shape. The ellipsoid is the mathematical model.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">3</span>The ________ is the theoretical surface that represents mean sea level extended continuously through the continents.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Geoid</span>
+                        <div class="answer-text">The geoid is the equipotential surface of the Earth's gravity field that best approximates mean sea level. It serves as the reference surface for orthometric heights.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">4</span>Which of the following best describes the shape of the Earth?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Perfect sphere</div>
+                        <div class="option"><span class="option-letter">B)</span> Oblate spheroid (flattened at poles, bulging at equator)</div>
+                        <div class="option"><span class="option-letter">C)</span> Prolate spheroid (elongated at poles)</div>
+                        <div class="option"><span class="option-letter">D)</span> Perfect ellipsoid</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Earth is an oblate spheroid — it is flattened at the poles and bulges at the equator due to rotational forces. This is why reference ellipsoids are used to model Earth's shape.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">5</span>The reference ellipsoid is a simplified mathematical model of the Earth's shape used for geodetic calculations.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">The reference ellipsoid is indeed a mathematical model (a flattened sphere) used to define geographic coordinates and perform geodetic calculations. Different datums use different ellipsoids.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">6</span>The difference in elevation between the geoid and the reference ellipsoid at any given point is called the ________.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Geoid undulation (or geoid height / geoid separation)</span>
+                        <div class="answer-text">Geoid undulation represents the vertical distance between the geoid (mean sea level surface) and the mathematical ellipsoid at a specific point. This value varies across the globe.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">7</span>Which scientist first proposed that Earth is an oblate spheroid based on gravitational theory?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Albert Einstein</div>
+                        <div class="option"><span class="option-letter">B)</span> Isaac Newton</div>
+                        <div class="option"><span class="option-letter">C)</span> Carl Friedrich Gauss</div>
+                        <div class="option"><span class="option-letter">D)</span> Jean-Baptiste Joseph Delambre</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Isaac Newton, in his Principia Mathematica (1687), theoretically predicted that Earth would be an oblate spheroid due to its rotation. This was later confirmed by geodetic surveys.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">8</span>The geoid is perfectly smooth and uniform across the entire Earth.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B (False)</span>
+                        <div class="answer-text">The geoid is irregular and lumpy due to variations in Earth's gravity caused by uneven mass distribution (mountains, ocean trenches, mantle density variations). It deviates from the smooth ellipsoid by up to ±100 meters.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Introduction to Coordinate Systems -->
+            <div class="section">
+                <div class="section-title">🗺️ 2. Introduction to Coordinate Systems</div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">9</span>In the geographic coordinate system, latitude measures angular distance:</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> East or West from the Prime Meridian</div>
+                        <div class="option"><span class="option-letter">B)</span> North or South from the Equator</div>
+                        <div class="option"><span class="option-letter">C)</span> From the center of the Earth</div>
+                        <div class="option"><span class="option-letter">D)</span> Along the surface of the geoid</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Latitude measures angular distance North or South from the Equator (0°), ranging from 90°N (North Pole) to 90°S (South Pole). Longitude measures East-West from the Prime Meridian.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">10</span>In the ECEF (Earth-Centered Earth-Fixed) coordinate system, the Z-axis points toward the ________.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: North Pole (or Conventional Terrestrial Pole / CTP)</span>
+                        <div class="answer-text">In ECEF coordinates, the Z-axis aligns with Earth's rotational axis pointing toward the North Pole. The X-axis points toward the intersection of the Equator and Prime Meridian (0°E, 0°N), and Y completes the right-handed system.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">11</span>The UTM coordinate system divides the world into how many zones?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> 36 zones</div>
+                        <div class="option"><span class="option-letter">B)</span> 60 zones</div>
+                        <div class="option"><span class="option-letter">C)</span> 180 zones</div>
+                        <div class="option"><span class="option-letter">D)</span> 360 zones</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">UTM divides the world into 60 zones, each 6° of longitude wide, numbered 1 to 60 starting from 180°W. Polar regions (above 84°N and below 80°S) use the Universal Polar Stereographic (UPS) system instead.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">12</span>In UTM coordinates, the false easting value of 500,000 meters is added to avoid negative coordinates.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Each UTM zone has a central meridian assigned a false easting of 500,000 meters. This ensures all easting values within a zone are positive numbers, making calculations and data management easier.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">13</span>Which coordinate system is specifically designed for the polar regions?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> UTM</div>
+                        <div class="option"><span class="option-letter">B)</span> State Plane Coordinate System</div>
+                        <div class="option"><span class="option-letter">C)</span> Universal Polar Stereographic (UPS)</div>
+                        <div class="option"><span class="option-letter">D)</span> GEOREF</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: C</span>
+                        <div class="answer-text">UPS covers polar regions (north of 84°N and south of 80°S) where UTM projections become too distorted. It uses a polar stereographic projection with the pole as the origin.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">14</span>The ________ coordinate system uses a 4-character alphanumeric code to identify 15° × 15° quadrangles worldwide.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: GEOREF (World Geographic Reference System)</span>
+                        <div class="answer-text">GEOREF divides the world into 15° × 15° quadrangles identified by two letters, then subdivides into smaller units. It was developed for military and aviation use for rapid position reporting.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">15</span>Which of the following is a primary purpose of the State Plane Coordinate System (SPCS) in the United States?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> To provide a single global coordinate system</div>
+                        <div class="option"><span class="option-letter">B)</span> To minimize distortion for large-scale mapping within individual states</div>
+                        <div class="option"><span class="option-letter">C)</span> To replace the GPS coordinate system</div>
+                        <div class="option"><span class="option-letter">D)</span> To map only federal lands</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">SPCS was designed to provide a high-accuracy coordinate system for each U.S. state with minimal distortion. Each state has one or more zones using either Transverse Mercator or Lambert Conformal Conic projections.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">16</span>The Maidenhead Locator System (Grid Squares) is primarily used by amateur radio operators to specify locations.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">The Maidenhead Locator System uses a combination of letters and numbers (e.g., "FM18lw") to encode latitude and longitude in a compact format. It is widely used in amateur radio (ham radio) for location reporting.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">17</span>In navigation systems, WGS 84 is best described as:</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> A type of map projection</div>
+                        <div class="option"><span class="option-letter">B)</span> A global geodetic datum used by GPS</div>
+                        <div class="option"><span class="option-letter">C)</span> A local coordinate system for Europe</div>
+                        <div class="option"><span class="option-letter">D)</span> A postal code system</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">WGS 84 (World Geodetic System 1984) is the global datum used by GPS. It defines a reference ellipsoid, coordinate system, and gravity model, providing a consistent framework for global positioning.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">18</span>In the Northern Hemisphere UTM system, northing values are measured from the ________.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Equator (with a value of 0 meters)</span>
+                        <div class="answer-text">In the Northern Hemisphere, northing starts at 0 at the Equator and increases northward. In the Southern Hemisphere, a false northing of 10,000,000 meters is applied at the Equator to keep all values positive.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">19</span>Which of the following is NOT a global coordinate system?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> WGS 84</div>
+                        <div class="option"><span class="option-letter">B)</span> ITRF (International Terrestrial Reference Frame)</div>
+                        <div class="option"><span class="option-letter">C)</span> State Plane Coordinate System</div>
+                        <div class="option"><span class="option-letter">D)</span> ECEF (Earth-Centered Earth-Fixed)</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: C</span>
+                        <div class="answer-text">The State Plane Coordinate System is a local (U.S.-specific) system designed for individual states. WGS 84, ITRF, and ECEF are all global systems used for worldwide positioning and navigation.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">20</span>Longitude values range from 0° to 180° East and 0° to 180° West.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Longitude measures angular distance East or West from the Prime Meridian (0°), ranging to 180°E and 180°W. The 180° meridian is approximately the International Date Line.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Projection Systems -->
+            <div class="section">
+                <div class="section-title">🎯 3. Projection Systems</div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">21</span>Which class of projections is best suited for mapping areas with a predominantly east-west extent?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Cylindrical projections</div>
+                        <div class="option"><span class="option-letter">B)</span> Conic projections</div>
+                        <div class="option"><span class="option-letter">C)</span> Azimuthal projections</div>
+                        <div class="option"><span class="option-letter">D)</span> Pseudocylindrical projections</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Conic projections are ideal for mid-latitude regions with east-west extent (e.g., the United States, Russia). The cone is placed over the region, minimizing distortion along standard parallels.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">22</span>A conformal projection preserves the shape of small areas but distorts area sizes.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Conformal (orthomorphic) projections preserve local shapes and angles, making them suitable for navigation and topographic maps. However, they distort area, especially at high latitudes (e.g., Greenland appears oversized on Mercator).</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">23</span>A projection that preserves area relationships is called an ________ projection.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Equal-area (or equivalent / authalic)</span>
+                        <div class="answer-text">Equal-area projections maintain correct area ratios, making them suitable for thematic maps showing population density, land use, or other areal distributions. Examples include Albers Equal-Area Conic and Mollweide.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">24</span>The Mercator projection is an example of which projection type?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Conic projection</div>
+                        <div class="option"><span class="option-letter">B)</span> Azimuthal projection</div>
+                        <div class="option"><span class="option-letter">C)</span> Cylindrical projection</div>
+                        <div class="option"><span class="option-letter">D)</span> Pseudoconic projection</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: C</span>
+                        <div class="answer-text">Mercator is a cylindrical projection where the globe is projected onto a cylinder wrapped around the Equator. It is conformal (preserves angles) and widely used for navigation because rhumb lines (constant bearing) appear as straight lines.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">25</span>Which projection property is most important for a map used in aviation route planning?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Equal area</div>
+                        <div class="option"><span class="option-letter">B)</span> Conformality (preservation of angles/shapes)</div>
+                        <div class="option"><span class="option-letter">C)</span> Equidistance (true distances from center)</div>
+                        <div class="option"><span class="option-letter">D)</span> Compromise (balanced distortion)</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Conformality is crucial for aviation because it preserves angles, allowing pilots to plot straight-line courses (rhumb lines) with constant compass bearings. The Mercator projection is historically used for this purpose.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">26</span>Azimuthal projections are best suited for mapping polar regions.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Azimuthal projections project the globe onto a flat plane tangent at a point (often a pole). They excel at showing polar regions with minimal distortion near the center point, making them ideal for Arctic and Antarctic maps.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">27</span>The ________ projection is a cylindrical projection that shows the entire world but significantly distorts areas near the poles.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Mercator</span>
+                        <div class="answer-text">The Mercator projection preserves angles and shapes locally but greatly exaggerates areas at high latitudes. Greenland appears larger than it actually is relative to equatorial regions. This has led to criticism for its cultural implications.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">28</span>Which of the following is a characteristic of the Transverse Mercator projection used in UTM?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> The cylinder is tangent to the Equator</div>
+                        <div class="option"><span class="option-letter">B)</span> The cylinder is rotated 90° and tangent to a meridian</div>
+                        <div class="option"><span class="option-letter">C)</span> The projection surface is a cone</div>
+                        <div class="option"><span class="option-letter">D)</span> The projection surface is a flat plane</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">In Transverse Mercator, the cylinder is rotated 90° (transverse) so it is tangent to a meridian (central meridian of each UTM zone) rather than the Equator. This minimizes distortion in north-south oriented zones.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">29</span>No map projection can simultaneously preserve both area and shape perfectly for the entire Earth.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">This is a fundamental theorem of cartography (related to Gauss's Theorema Egregium). It is impossible to flatten a sphere onto a plane without distortion. Projections must compromise — preserving some properties while distorting others.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">30</span>A map that has not been projected and simply uses latitude and longitude as x-y coordinates is called an ________ map.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Unprojected (or geographic / plate carrée)</span>
+                        <div class="answer-text">An unprojected map treats longitude as x and latitude as y in a simple Cartesian grid. While easy to create, it causes significant distortion in shape and area, especially at higher latitudes where meridians converge.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Geodetic Datums -->
+            <div class="section">
+                <div class="section-title">📍 4. Geodetic Datums</div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">31</span>A geodetic datum primarily defines:</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> The color scheme of a map</div>
+                        <div class="option"><span class="option-letter">B)</span> The origin and orientation of a coordinate system relative to Earth</div>
+                        <div class="option"><span class="option-letter">C)</span> The scale of a map</div>
+                        <div class="option"><span class="option-letter">D)</span> The legend symbols used</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">A datum defines the position and orientation of the reference ellipsoid relative to Earth's center and surface. It provides the framework for measuring precise locations, consisting of an ellipsoid and an origin point.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">32</span>Datum shifts occur because different datums use different reference ellipsoids and origin points.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">When converting between datums (e.g., NAD27 to NAD83), coordinates shift because the underlying ellipsoids have different sizes, shapes, and positions relative to Earth's center of mass. Shifts can range from meters to hundreds of meters.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">33</span>The process of converting coordinates from one datum to another is called ________.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Datum transformation (or datum conversion)</span>
+                        <div class="answer-text">Datum transformations use mathematical models (e.g., Helmert transformation, Molodensky transformation, or grid-based methods like NADCON) to convert coordinates between different datums. This is essential when combining data from different sources.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">34</span>Which of the following pairs represents an older datum and its newer replacement in the United States?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> WGS 84 and ITRF 2014</div>
+                        <div class="option"><span class="option-letter">B)</span> NAD27 and NAD83</div>
+                        <div class="option"><span class="option-letter">C)</span> ED50 and ETRS89</div>
+                        <div class="option"><span class="option-letter">D)</span> Tokyo Datum and JGD2000</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">NAD27 (North American Datum 1927) was based on the Clarke 1866 ellipsoid with a ground-based origin. NAD83 (1983) is satellite-based, using the GRS 80 ellipsoid with an Earth-centered origin. Shifts between them can exceed 100 meters.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">35</span>A geocentric datum differs from a local datum primarily in that:</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> It uses a different map projection</div>
+                        <div class="option"><span class="option-letter">B)</span> Its origin is at Earth's center of mass rather than a surface point</div>
+                        <div class="option"><span class="option-letter">C)</span> It only works for small countries</div>
+                        <div class="option"><span class="option-letter">D)</span> It does not use an ellipsoid</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Geocentric datums (like WGS 84, NAD83) have their origin at Earth's center of mass, making them globally consistent. Local datums (like NAD27, Tokyo Datum) have origins tied to specific regional survey points, optimized for local accuracy.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">36</span>Modern GPS receivers automatically use WGS 84 as their reference datum.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">GPS satellites broadcast their positions in WGS 84. Most GPS receivers natively compute positions in WGS 84 and can optionally transform to local datums (e.g., NAD83, ETRS89) for display or mapping purposes.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">37</span>The ________ is the physical surface of the Earth including all terrain features like mountains and valleys.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Topographic surface (or physical surface / Earth's surface)</span>
+                        <div class="answer-text">The topographic surface is the actual physical surface we live on. It differs from the geoid (mean sea level surface) and the ellipsoid (mathematical model). Heights above the geoid are called orthometric heights.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">38</span>Which statement about datum conversions is correct?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Datum conversions are always exact with no errors</div>
+                        <div class="option"><span class="option-letter">B)</span> Datum conversions may introduce positional errors of several meters</div>
+                        <div class="option"><span class="option-letter">C)</span> Datum conversions are only needed for paper maps</div>
+                        <div class="option"><span class="option-letter">D)</span> Datum conversions change the map projection type</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Datum transformations are approximations. Depending on the method used (simple 3-parameter vs. grid-based 7-parameter), errors can range from centimeters to several meters. High-precision applications require careful transformation method selection.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">39</span>ITRF (International Terrestrial Reference Frame) is updated periodically to account for tectonic plate motion.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">ITRF is updated every few years (e.g., ITRF2014, ITRF2020) because tectonic plates move several centimeters per year. These updates ensure the reference frame remains accurate for high-precision geodetic applications and scientific research.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">40</span>A ________ datum provides the reference for measuring elevations (heights) above mean sea level.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Vertical datum</span>
+                        <div class="answer-text">A vertical datum defines the zero elevation surface (typically the geoid / mean sea level) for measuring heights. Examples include NAVD88 (North American Vertical Datum 1988) and EGM96 (Earth Gravitational Model 1996).</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 5: Map Elements -->
+            <div class="section">
+                <div class="section-title">🗺️ 5. Map Elements & Types</div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">41</span>Which of the following is NOT considered an essential map element?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Title</div>
+                        <div class="option"><span class="option-letter">B)</span> Scale indicator</div>
+                        <div class="option"><span class="option-letter">C)</span> North arrow</div>
+                        <div class="option"><span class="option-letter">D)</span> Price of the map</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: D</span>
+                        <div class="answer-text">Essential map elements include: title, legend, scale bar, north arrow, coordinate grid, projection information, data source/credits, and date. The price is a commercial detail, not a cartographic element.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">42</span>A thematic map focuses on showing the spatial distribution of a specific theme or topic.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Thematic maps display specific themes such as population density, climate zones, land use, or election results. They differ from reference maps (topographic maps, road maps) which show general geographic features.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">43</span>A map that shows elevation using contour lines is called a ________ map.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Topographic</span>
+                        <div class="answer-text">Topographic maps use contour lines to represent elevation and terrain relief. Each contour line connects points of equal elevation, allowing users to visualize hills, valleys, and slopes. Examples include USGS topographic quadrangle maps.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">44</span>Which map type would be most appropriate for showing population density across a country?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Road map</div>
+                        <div class="option"><span class="option-letter">B)</span> Choropleth map</div>
+                        <div class="option"><span class="option-letter">C)</span> Nautical chart</div>
+                        <div class="option"><span class="option-letter">D)</span> Aeronautical chart</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">A choropleth map uses color shading or patterns to represent data values (like population density) within predefined areas (counties, states, census tracts). Darker shades typically indicate higher values.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">45</span>The statement "1 inch equals 1 mile" on a map represents which type of scale?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Representative fraction (RF)</div>
+                        <div class="option"><span class="option-letter">B)</span> Verbal scale</div>
+                        <div class="option"><span class="option-letter">C)</span> Graphic scale (bar scale)</div>
+                        <div class="option"><span class="option-letter">D)</span> Digital scale</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">A verbal scale uses words to describe the relationship (e.g., "1 inch to 1 mile"). RF uses a ratio (1:63,360). A graphic scale is a visual bar that remains accurate when the map is enlarged or reduced.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">46</span>A cadastral map shows property boundaries and land ownership information.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Cadastral maps (or parcel maps) show property boundaries, ownership, and land registration information. They are essential for land administration, taxation, and legal land transactions.</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">47</span>The ________ on a map explains what the symbols, colors, and patterns represent.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Legend (or map key)</span>
+                        <div class="answer-text">The legend is a crucial map element that decodes the symbology used on the map. It explains what each color, line type, symbol, and pattern represents, enabling users to correctly interpret the map's information.</div>
+                    </div>
+                </div>
+
+                <div class="question mcq">
+                    <div class="question-text"><span class="question-number">48</span>Which of the following map types is specifically designed for marine navigation?</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> Topographic map</div>
+                        <div class="option"><span class="option-letter">B)</span> Nautical chart</div>
+                        <div class="option"><span class="option-letter">C)</span> Choropleth map</div>
+                        <div class="option"><span class="option-letter">D)</span> Geological map</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: B</span>
+                        <div class="answer-text">Nautical charts are designed for marine navigation, showing water depths, shoreline features, navigational aids (buoys, lighthouses), hazards, and tidal information. They use specialized symbology and are produced by hydrographic offices.</div>
+                    </div>
+                </div>
+
+                <div class="question true-false">
+                    <div class="question-text"><span class="question-number">49</span>On small-scale maps, a large area is shown with less detail.</div>
+                    <div class="options">
+                        <div class="option"><span class="option-letter">A)</span> True</div>
+                        <div class="option"><span class="option-letter">B)</span> False</div>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: A (True)</span>
+                        <div class="answer-text">Scale is a ratio: small-scale maps have a small ratio (e.g., 1:1,000,000) showing large areas (continents, world) with generalized detail. Large-scale maps (e.g., 1:1,000) show small areas with high detail (city blocks, building footprints).</div>
+                    </div>
+                </div>
+
+                <div class="question fill-blank">
+                    <div class="question-text"><span class="question-number">50</span>A map that uses dots to represent quantities or occurrences at specific locations is called a ________ map.</div>
+                    <button class="btn-toggle" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <span class="answer-label">Answer: Dot distribution (or dot density)</span>
+                        <div class="answer-text">Dot distribution maps use dots to represent the presence, quantity, or frequency of a phenomenon. Each dot may represent one unit or a specified number of units (e.g., one dot = 1,000 people). They are useful for showing spatial patterns.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>🎓 Good luck with your studies! Practice regularly to master these concepts.</p>
+                <p>Topics covered: Basic Geodesy | Coordinate Systems | Map Projections | Geodetic Datums | Map Elements</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(btn) {
+            const answerBox = btn.nextElementSibling;
+            if (answerBox.classList.contains('show')) {
+                answerBox.classList.remove('show');
+                btn.textContent = 'Show Answer';
+            } else {
+                answerBox.classList.add('show');
+                btn.textContent = 'Hide Answer';
+            }
+        }
+
+        function showAllAnswers() {
+            document.querySelectorAll('.answer-box').forEach(box => {
+                box.classList.add('show');
+            });
+            document.querySelectorAll('.btn-toggle').forEach(btn => {
+                btn.textContent = 'Hide Answer';
+            });
+        }
+
+        function hideAllAnswers() {
+            document.querySelectorAll('.answer-box').forEach(box => {
+                box.classList.remove('show');
+            });
+            document.querySelectorAll('.btn-toggle').forEach(btn => {
+                btn.textContent = 'Show Answer';
+            });
+        }
+    </script>
+</body>
+</html>
